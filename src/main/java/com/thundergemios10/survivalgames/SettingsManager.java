@@ -315,9 +315,9 @@ public class SettingsManager {
 	public Location getLobbySpawn() {
 		try{
 			return new Location(Bukkit.getWorld(system.getString("sg-system.lobby.spawn.world")),
-				system.getInt("sg-system.lobby.spawn.x"),
+				(float)(system.getInt("sg-system.lobby.spawn.x") + 0.5F),
 				system.getInt("sg-system.lobby.spawn.y"),
-				system.getInt("sg-system.lobby.spawn.z"),
+				(float)(system.getInt("sg-system.lobby.spawn.z") + 0.5F),
 				system.getInt("sg-system.lobby.spawn.yaw"),
 				system.getInt("sg-system.lobby.spawn.pitch"));
 		}catch(Exception e){
@@ -327,9 +327,9 @@ public class SettingsManager {
 
 	public Location getSpawnPoint(int gameid, int spawnid) {
 		return new Location(getGameWorld(gameid),
-				spawns.getInt("spawns." + gameid + "." + spawnid + ".x"),
-				spawns.getInt("spawns." + gameid + "." + spawnid + ".y"),
-				spawns.getInt("spawns." + gameid + "." + spawnid + ".z"),
+				(float)(spawns.getInt("spawns." + gameid + "." + spawnid + ".x") + 0.5F),
+				(float)spawns.getInt("spawns." + gameid + "." + spawnid + ".y"),
+				(float)(spawns.getInt("spawns." + gameid + "." + spawnid + ".z") + 0.5F),
 				(float)spawns.getDouble("spawns." + gameid + "." + spawnid + ".yaw"),
 				(float)spawns.getDouble("spawns." + gameid + "." + spawnid + ".pitch"));
 	}
